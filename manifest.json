@@ -1,0 +1,19 @@
+{
+    "name": "Flixtras",
+    "description": "Flixtor extra functions",
+    "author": "Dustin Gritman",
+    "version": "1.0",
+    "manifest_version": 3,
+    "content_scripts": [
+        {
+            "matches": [
+                "https://flixtor.to/watch/*"
+            ],
+            "js": [
+                "jquery-3.6.0.slim.min.js",
+                "content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ]
+}
