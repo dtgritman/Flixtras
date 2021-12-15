@@ -1,2 +1,3 @@
-# flixtras
-Extra flixtor functionality
+# Flixtras
+
+Extra Flixtor functionality
