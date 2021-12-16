@@ -6,13 +6,12 @@ This chrome extension is meant to add some extra quality of life functionality t
 
 ## Current Features
 
-- Scroll wheel volume adjustment
+- Scroll wheel volume adjustment (with simple overlay)
 
 ## Future Features
 
-- Edit volume adjustment amount
-
-- Current volume overlay while adjusting
+- Options menu for controlling settings
+- Disable option
 
 ## About
 
