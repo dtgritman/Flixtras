@@ -1,6 +1,6 @@
 {
     "name": "Flixtras",
-    "description": "Flixtor extra functions",
+    "description": "Flixtor volume control. Project is on Github: https://github.com/dtgritman/Flixtras",
     "author": "Dustin Gritman",
     "version": "1.0",
     "manifest_version": 3,
