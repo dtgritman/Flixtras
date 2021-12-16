@@ -7,7 +7,13 @@
     "content_scripts": [
         {
             "matches": [
-                "https://flixtor.to/watch/*"
+                "https://flixtor.to/watch/*",
+                "https://flixtor.se/watch/*",
+                "https://flixtor.vc/watch/*",
+                "https://flixtor.nu/watch/*",
+                "https://flixtor.sx/watch/*",
+                "https://flixtor.tk/watch/*",
+                "https://flixtor.cz/watch/*"
             ],
             "js": [
                 "jquery-3.6.0.slim.min.js",
