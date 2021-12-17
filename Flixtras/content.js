@@ -1,8 +1,13 @@
-var volumeAdj = 0.05;
 var overlayTimer = 0;
 const overlayElementContainer = document.createElement("div");
 const overlayElement = document.createElement("p");
 overlayElementContainer.append(overlayElement);
+
+var volume = {
+    "adjustment": 0.05,
+    "backgroundColor": "#000000",
+    "color": "#ffffff",
+};
 
 $(overlayElementContainer).css({
     "pointerEvents": "none", // make mouse events go through to element behind
@@ -13,30 +18,39 @@ $(overlayElementContainer).css({
 });
 
 $(overlayElement).css({
-    "background-color": "black",
+    "backgroundColor": volume.backgroundColor,
+    "color": volume.color,
     "opacity": "60%",
     "position": "relative",
     "top": "50%",
     "margin": "auto",
-    "margin-top": "-1em",
+    "marginTop": "-1em",
     "padding": "0.5em",
-    "padding-left": "1em",
-    "padding-right": "1em",
+    "paddingLeft": "1em",
+    "paddingRight": "1em",
 });
 
 // load stored settings
-chrome.storage.local.get(["volumeBColor", "volumeTColor"], (result) => {
-    if (result.volumeBColor)
-        overlayElement.style.backgroundColor = result.volumeBColor;
-    if (result.volumeTColor)
-        overlayElement.style.color = result.volumeTColor;
+chrome.storage.local.get(["volume"], (result) => {
+    if (!result.volume) {
+        return;
+    }
+
+    if (result.volume.backgroundColor) {
+        volume.backgroundColor = result.volume.backgroundColor;
+        overlayElement.style.backgroundColor = volume.backgroundColor;
+    }
+    if (result.volume.color) {
+        volume.color = result.volume.color;
+        overlayElement.style.color = volume.color;
+    }
 });
 
 
 $("div").on("wheel", "video", function (event) {
     event.preventDefault(); // prevent page scrolling on videos
 
-    let newVolume = parseFloat((this.volume + ((event.originalEvent.deltaY < 0 ? 1 : -1) * volumeAdj)).toFixed(2));
+    let newVolume = parseFloat((this.volume + ((event.originalEvent.deltaY < 0 ? 1 : -1) * volume.adjustment)).toFixed(2));
 
     // Ensure the new volume value is between 0 and 1
     if (newVolume < 0) {

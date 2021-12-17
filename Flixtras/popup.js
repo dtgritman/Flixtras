@@ -1,11 +1,19 @@
-chrome.storage.local.get(["volumeBColor", "volumeTColor"], (result) => {
-    if (result.volumeBColor)
-        volumeBColor.value = result.volumeBColor;
-    if (result.volumeTColor)
-        volumeTColor.value = result.volumeTColor;
+chrome.storage.local.get(["volume"], (result) => {
+    if (!result.volume) {
+        return;
+    }
+
+    if (result.volume.backgroundColor)
+        volBackgroundColor.value = result.volume.backgroundColor;
+    if (result.volume.color)
+        volColor.value = result.volume.color;
 });
 
 submitSettings.addEventListener("click", async () => {
-    chrome.storage.local.set({ "volumeBColor": volumeBColor.value });
-    chrome.storage.local.set({ "volumeTColor": volumeTColor.value });
+    chrome.storage.local.set({
+        "volume": {
+            "backgroundColor": volBackgroundColor.value,
+            "color": volColor.value
+        }
+    });
 });
