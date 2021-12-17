@@ -34,5 +34,7 @@ submitSettings.addEventListener("click", async () => {
             "backgroundColor": volBackgroundColor.value,
             "color": volColor.value
         }
+    }, () => {
+        alert("Settings updated! Refresh the page for the settings to take effect.");
     });
 });
