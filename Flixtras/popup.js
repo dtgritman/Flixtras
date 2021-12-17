@@ -3,6 +3,8 @@ chrome.storage.local.get(["volume"], (result) => {
         return;
     }
 
+    if (result.volume.increment)
+        volIncrement.value = result.volume.increment;
     if (result.volume.backgroundColor)
         volBackgroundColor.value = result.volume.backgroundColor;
     if (result.volume.color)
