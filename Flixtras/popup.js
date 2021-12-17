@@ -14,6 +14,7 @@ chrome.storage.local.get(["volume"], (result) => {
 submitSettings.addEventListener("click", async () => {
     chrome.storage.local.set({
         "volume": {
+            "increment": volIncrement,
             "backgroundColor": volBackgroundColor.value,
             "color": volColor.value
         }
