@@ -1,10 +1,10 @@
-var overlayTimer = 0;
 const overlayElementContainer = document.createElement("div");
 const overlayElement = document.createElement("p");
 overlayElementContainer.append(overlayElement);
 
+var overlayTimer = 0;
 var volume = {
-    "adjustment": 0.05,
+    "increment": 0.01,
     "backgroundColor": "#000000",
     "color": "#ffffff",
 };
@@ -36,6 +36,9 @@ chrome.storage.local.get(["volume"], (result) => {
         return;
     }
 
+    if (result.volume.increment) {
+        volume.increment = result.volume.increment;
+    }
     if (result.volume.backgroundColor) {
         volume.backgroundColor = result.volume.backgroundColor;
         overlayElement.style.backgroundColor = volume.backgroundColor;
@@ -50,7 +53,7 @@ chrome.storage.local.get(["volume"], (result) => {
 $("div").on("wheel", "video", function (event) {
     event.preventDefault(); // prevent page scrolling on videos
 
-    let newVolume = parseFloat((this.volume + ((event.originalEvent.deltaY < 0 ? 1 : -1) * volume.adjustment)).toFixed(2));
+    let newVolume = parseFloat((this.volume + ((event.originalEvent.deltaY < 0 ? 1 : -1) * volume.increment)).toFixed(2));
 
     // Ensure the new volume value is between 0 and 1
     if (newVolume < 0) {
