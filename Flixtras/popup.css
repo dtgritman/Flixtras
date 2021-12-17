@@ -15,7 +15,8 @@ body {
 .settings-item {
     margin: 4px;
     display: flex;
-    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
 }
 
 .settings-label {
