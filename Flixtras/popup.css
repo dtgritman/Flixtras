@@ -3,16 +3,17 @@ body {
     width: 220px;
 }
 
-.title {
-    margin: 0;
-}
-
 .settings {
     margin-top: 5px;
 }
 
+.settings-title {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
 .settings-item {
-    margin: 3px;
+    margin: 4px;
     display: flex;
     vertical-align: middle;
 }
