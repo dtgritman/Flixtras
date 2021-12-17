@@ -2,13 +2,16 @@
     "name": "Flixtras",
     "version": "0.0.1",
     "icons": {
-        "16": "images/icon16.png",
-        "48": "images/icon48.png",
-        "128": "images/icon128.png"
+        "16": "/images/icon16.png",
+        "48": "/images/icon48.png",
+        "128": "/images/icon128.png"
     },
     "description": "Flixtor volume control. Project is on Github: https://github.com/dtgritman/Flixtras",
     "author": "Dustin Gritman",
     "manifest_version": 3,
+    "permissions": [
+        "storage"
+    ],
     "content_scripts": [
         {
             "matches": [
@@ -26,5 +29,8 @@
             ],
             "run_at": "document_end"
         }
-    ]
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    }
 }
