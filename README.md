@@ -8,14 +8,14 @@ Available on the chrome web store: [link](https://chrome.google.com/webstore/det
 ## Current Features
 
 - Scroll wheel volume adjustment
-- Customizeable overlay colors
+  - Adjustable volume scroll increment
+  - Customizeable overlay colors
 
 ## Future Features
 
 ### Options Menu
 
-- Change volume adjustment amount
-- Change volume overlay position
+- Adjustable volume overlay position
 
 ## About
 
