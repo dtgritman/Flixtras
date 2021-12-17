@@ -17,6 +17,18 @@ Available on the chrome web store: [link](https://chrome.google.com/webstore/det
 
 - Adjustable volume overlay position
 
+## Updates
+
+### 0.0.3
+
+- Volume increments are now a dropdown menu
+
+### 0.0.2
+
+- Added volume increment to menu
+- Fixed menu layout some
+- Restructed local storage
+
 ## About
 
 This is just a random side project to enhance Flixtors controls.
