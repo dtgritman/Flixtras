@@ -17,11 +17,12 @@ Available on the chrome web store: [link](https://chrome.google.com/webstore/det
 
 - Adjustable volume overlay position
 
-## Updates
+## Patch Notes
 
 ### 0.0.3
 
 - Volume increments are now a dropdown menu
+- Opacity of overlay can be changed
 
 ### 0.0.2
 
