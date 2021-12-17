@@ -1,7 +1,38 @@
 body {
-    background-color: lightgray;
+    background-color: #cecece;
+    width: 200px;
 }
 
 .title {
-    width: 150px;
+    margin: 0;
+}
+
+.settings {
+    margin-top: 5px;
+}
+
+.settings-item {
+    margin: 3px;
+    display: flex;
+}
+
+.settings-label {
+    flex: 60%;
+}
+
+.settings-option {
+    flex: 40%;
+}
+
+.label {
+    margin: 0;
+    margin-top: 2px;
+    margin-left: 10px;
+}
+
+.center-content {
+    width: "100%";
+    display: "flex";
+    justify-content: "center";
+    text-align: center;
 }
