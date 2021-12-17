@@ -17,15 +17,10 @@ $(overlayElementContainer).css({
     "width": "100%",
     "height": "100%",
     "display": "flex",
-    "justifyContent": "center",
 });
 
 $(overlayElement).css({
-    "backgroundColor": volume.backgroundColor,
-    "color": volume.color,
-    "opacity": volume.opacity,
     "position": "relative",
-    "top": "50%",
     "margin": "auto",
     "marginTop": "-1em",
     "padding": "0.5em",
@@ -33,23 +28,31 @@ $(overlayElement).css({
     "paddingRight": "1em",
 });
 
+function updateOverlay() {
+    $(overlayElementContainer).css({
+        "justifyContent": "center",
+    });
+
+    $(overlayElement).css({
+        "backgroundColor": volume.backgroundColor,
+        "color": volume.color,
+        "opacity": volume.opacity,
+        "top": "50%",
+    });
+}
+
 // load stored settings
 chrome.storage.local.get(["volume"], (result) => {
-    if (!result.volume) {
-        return;
-    }
-
-    if (result.volume.increment) {
+    if (result.volume.increment)
         volume.increment = result.volume.increment / 100;
-    }
-    if (result.volume.backgroundColor) {
+    if (result.volume.backgroundColor)
         volume.backgroundColor = result.volume.backgroundColor;
-        overlayElement.style.backgroundColor = volume.backgroundColor;
-    }
-    if (result.volume.color) {
+    if (result.volume.color)
         volume.color = result.volume.color;
-        overlayElement.style.color = volume.color;
-    }
+    if (result.volume.opacity)
+        volume.opacity = result.volume.opacity;
+
+    updateOverlay();
 });
 
 
