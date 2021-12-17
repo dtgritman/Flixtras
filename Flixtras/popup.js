@@ -13,6 +13,8 @@ chrome.storage.local.get(["volume"], (result) => {
         volBackgroundColor.value = result.volume.backgroundColor;
     if (result.volume.color)
         volColor.value = result.volume.color;
+    if (result.volume.opacity)
+        volOverlayO.value = result.volume.opacity;
 });
 
 submitSettings.addEventListener("click", async () => {
@@ -32,7 +34,8 @@ submitSettings.addEventListener("click", async () => {
             "vertical": volOverlayV.value,
             "horizontal": volOverlayH.value,
             "backgroundColor": volBackgroundColor.value,
-            "color": volColor.value
+            "color": volColor.value,
+            "opacity": volOverlayO.value
         }
     }, () => {
         alert("Settings updated! Refresh the page for the settings to take effect.");
