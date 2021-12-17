@@ -5,8 +5,11 @@ overlayElementContainer.append(overlayElement);
 var overlayTimer = 0;
 var volume = {
     "increment": 0.01,
+    "vertical": 2,
+    "horizontal": 2,
     "backgroundColor": "#000000",
     "color": "#ffffff",
+    "opacity": "50%",
 };
 
 $(overlayElementContainer).css({
@@ -20,7 +23,7 @@ $(overlayElementContainer).css({
 $(overlayElement).css({
     "backgroundColor": volume.backgroundColor,
     "color": volume.color,
-    "opacity": "60%",
+    "opacity": volume.opacity,
     "position": "relative",
     "top": "50%",
     "margin": "auto",
