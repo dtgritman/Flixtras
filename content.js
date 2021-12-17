@@ -24,6 +24,15 @@ $(overlayElement).css({
     "padding-right": "1em",
 });
 
+// load stored settings
+chrome.storage.local.get(["volumeBColor", "volumeTColor"], (result) => {
+    if (result.volumeBColor)
+        overlayElement.style.backgroundColor = result.volumeBColor;
+    if (result.volumeTColor)
+        overlayElement.style.color = result.volumeTColor;
+});
+
+
 $("div").on("wheel", "video", function (event) {
     event.preventDefault(); // prevent page scrolling on videos
 
