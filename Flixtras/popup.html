@@ -6,24 +6,56 @@
 </head>
 
 <body>
-    <div class="settings">
+    <section class="settings">
         <h3 class="settings-title">Volume Settings</h3>
 
         <div class="settings-item">
-            <label class="settings-label">Scroll Increment (1-100):</label>
-            <input type="number" id="volIncrement" class="settings-option" min="1" max="100" defaultValue="1">
+            <label for="volIncrement" class="settings-label">Volume Increment:</label>
+            <select id="volIncrement" name="volIncrement" class="settings-option">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+            </select>
+        </div>
+    </section>
+
+    <section class="settings">
+        <h3 class="settings-title">Volume Overlay Settings</h3>
+
+        <div class="settings-item">
+            <label for="volOverlayV" class="settings-label">Vertical Position:</label>
+            <select id="volOverlayV" name="volOverlayV" class="settings-option">
+                <option value="1">Top</option>
+                <option value="2" selected>Middle</option>
+                <option value="3">Bottom</option>
+            </select>
         </div>
 
         <div class="settings-item">
-            <label class="settings-label">Backgound Color:</label>
-            <input type="color" id="volBackgroundColor" class="settings-option" defaultValue="#000000">
+            <label for="volOverlayH" class="settings-label">Horizontal Position:</label>
+            <select id="volOverlayH" name="volOverlayH" class="settings-option">
+                <option value="1">Left</option>
+                <option value="2" selected>Middle</option>
+                <option value="3">Right</option>
+            </select>
         </div>
 
         <div class="settings-item">
-            <label class="settings-label">Text Color:</label>
-            <input type="color" id="volColor" class="settings-option" defaultValue="#ffffff">
+            <label for="volBackgroundColor" class="settings-label">Backgound Color:</label>
+            <input type="color" id="volBackgroundColor" name="volBackgroundColor" class="settings-option"
+                defaultValue="#000000">
         </div>
-    </div>
+
+        <div class="settings-item">
+            <label for="volColor" class="settings-label">Text Color:</label>
+            <input type="color" id="volColor" name="volColor" class="settings-option" defaultValue="#ffffff">
+        </div>
+    </section>
+
     <div class="center-content">
         <button id="submitSettings">Save</button>
     </div>
