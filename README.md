@@ -16,8 +16,9 @@ Available on the chrome web store: [link](https://chrome.google.com/webstore/det
 ### 0.0.3
 
 - Volume increments are now a dropdown menu
-- Overlay opacity can be changed
+- Overlay display can be disabled
 - Overlay position can be changed
+- Overlay opacity can be changed
 - Setting changes no longer require page refresh
 - More menu layout fixes
 
