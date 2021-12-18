@@ -16,7 +16,12 @@ chrome.storage.local.get(["volume"], (result) => {
         volColor.value = result.volume.element.color;
         volOpacity.value = result.volume.element.opacity;
     }
+    updateSettingsOverlay();
 });
+
+const updateSettingsOverlay = () => { settingsOverlay.style.display = (volOverlay.value > 0) ? "" : "none"; };
+
+volOverlay.addEventListener("change", () => { updateSettingsOverlay(); });
 
 submitSettings.addEventListener("click", async () => {
     chrome.storage.local.set({
