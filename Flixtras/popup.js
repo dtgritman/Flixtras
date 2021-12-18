@@ -30,7 +30,5 @@ submitSettings.addEventListener("click", async () => {
                 "opacity": volOpacity.value,
             },
         }
-    }, () => {
-        alert("Settings updated! Refresh the page for the settings to take effect.");
     });
 });
