@@ -5,10 +5,10 @@ chrome.storage.local.get(["volume"], (result) => {
 
     if (result.volume.increment)
         volIncrement.value = result.volume.increment;
-    if (result.volume.vertical)
-        volOverlayV.value = result.volume.vertical;
-    if (result.volume.horizontal)
-        volOverlayH.value = result.volume.horizontal;
+    if (result.volume.alignItems)
+        volOverlayV.value = result.volume.alignItems;
+    if (result.volume.justifyContent)
+        volOverlayH.value = result.volume.justifyContent;
     if (result.volume.backgroundColor)
         volBackgroundColor.value = result.volume.backgroundColor;
     if (result.volume.color)
