@@ -5,11 +5,11 @@ overlayElementContainer.append(overlayElement);
 var overlayTimer = 0;
 var volume = {
     "increment": 0.01,
-    "vertical": 2,
-    "horizontal": 2,
+    "vertical": "center",
+    "horizontal": "center",
     "backgroundColor": "#000000",
     "color": "#ffffff",
-    "opacity": "50%",
+    "opacity": "50",
 };
 
 $(overlayElementContainer).css({
@@ -21,6 +21,8 @@ $(overlayElementContainer).css({
 
 $(overlayElement).css({
     "position": "relative",
+    "width": "fit-content",
+    "height": "fit-content",
     "padding": "0.5em",
     "paddingLeft": "1em",
     "paddingRight": "1em",
@@ -28,17 +30,15 @@ $(overlayElement).css({
 
 function updateOverlay() {
     $(overlayElementContainer).css({
-        "justifyContent": "center",
+        "align-items": volume.vertical,
+        "justify-content": volume.horizontal,
     });
 
 
     $(overlayElement).css({
-        "backgroundColor": volume.backgroundColor,
+        "background-color": volume.backgroundColor,
         "color": volume.color,
         "opacity": volume.opacity + "%",
-        "margin": "auto",
-        "marginTop": (-1 * volume.vertical) + "em",
-        "top": (50 * volume.vertical) + "%",
     });
 }
 
