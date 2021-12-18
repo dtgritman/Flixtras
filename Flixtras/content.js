@@ -4,7 +4,7 @@ overlayElementContainer.append(overlayElement);
 
 var overlayTimer = 0;
 var volume = {
-    "increment": 0.01,
+    "increment": 1,
     "alignItems": "center",
     "justifyContent": "center",
     "backgroundColor": "#000000",
@@ -44,7 +44,7 @@ function updateOverlay() {
 // load stored settings
 chrome.storage.local.get(["volume"], (result) => {
     if (result.volume.increment)
-        volume.increment = result.volume.increment / 100;
+        volume.increment = result.volume.increment;
     if (result.volume.alignItems)
         volume.alignItems = result.volume.alignItems;
     if (result.volume.justifyContent)
@@ -63,7 +63,7 @@ chrome.storage.local.get(["volume"], (result) => {
 $("div").on("wheel", "video", function (event) {
     event.preventDefault(); // prevent page scrolling on videos
 
-    let newVolume = parseFloat((this.volume + ((event.originalEvent.deltaY < 0 ? 1 : -1) * volume.increment)).toFixed(2));
+    let newVolume = parseFloat((this.volume + ((event.originalEvent.deltaY < 0 ? 0.01 : -0.01) * volume.increment)).toFixed(2));
 
     // Ensure the new volume value is between 0 and 1
     if (newVolume < 0) {
