@@ -12,20 +12,20 @@ var volume = {
     "opacity": "50",
 };
 
+// standard css for the overlay elements
 $(overlayElementContainer).css({
-    "pointerEvents": "none", // make mouse events go through to element behind
+    "pointer-events": "none", // make mouse events go through to element behind
     "width": "100%",
     "height": "100%",
     "display": "flex",
 });
-
 $(overlayElement).css({
     "position": "relative",
     "width": "fit-content",
     "height": "fit-content",
     "padding": "0.5em",
-    "paddingLeft": "1em",
-    "paddingRight": "1em",
+    "padding-left": "1em",
+    "padding-right": "1em",
 });
 
 function updateOverlay() {
