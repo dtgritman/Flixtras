@@ -89,6 +89,6 @@ function displayOverlay(parent, text, time = 1000) {
     parent.append(overlayElementContainer);
     clearTimeout(overlayTimer);
     overlayTimer = setTimeout(function () {
-        //overlayElementContainer.remove();
+        overlayElementContainer.remove();
     }, time);
 }
