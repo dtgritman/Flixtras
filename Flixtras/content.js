@@ -5,11 +5,15 @@ overlayElementContainer.append(overlayElement);
 var overlayTimer = 0;
 var volume = {
     "increment": 1,
-    "alignItems": "center",
-    "justifyContent": "center",
-    "backgroundColor": "#000000",
-    "color": "#ffffff",
-    "opacity": "50%",
+    "container": {
+        "alignItems": "center",
+        "justifyContent": "center",
+    },
+    "element": {
+        "backgroundColor": "#000000",
+        "color": "#ffffff",
+        "opacity": "50%",
+    },
 };
 
 // standard css for the overlay elements
@@ -29,6 +33,9 @@ $(overlayElement).css({
 });
 
 function updateOverlay() {
+    $(overlayElementContainer).css(volume.container);
+    $(overlayElement).css(volume.element);
+    /*
     $(overlayElementContainer).css({
         "alignItems": volume.alignItems,
         "justifyContent": volume.justifyContent,
@@ -39,22 +46,17 @@ function updateOverlay() {
         "color": volume.color,
         "opacity": volume.opacity,
     });
+    */
 }
 
 // load stored settings
 chrome.storage.local.get(["volume"], (result) => {
     if (result.volume.increment)
         volume.increment = result.volume.increment;
-    if (result.volume.alignItems)
-        volume.alignItems = result.volume.alignItems;
-    if (result.volume.justifyContent)
-        volume.justifyContent = result.volume.justifyContent;
-    if (result.volume.backgroundColor)
-        volume.backgroundColor = result.volume.backgroundColor;
-    if (result.volume.color)
-        volume.color = result.volume.color;
-    if (result.volume.opacity)
-        volume.opacity = result.volume.opacity;
+    if (result.volume.container)
+        volume.container = result.volume.container;
+    if (result.volume.element)
+        volume.element = result.volume.element;
 
     updateOverlay();
 });
