@@ -9,7 +9,7 @@ var volume = {
     "justifyContent": "center",
     "backgroundColor": "#000000",
     "color": "#ffffff",
-    "opacity": "50",
+    "opacity": "50%",
 };
 
 // standard css for the overlay elements
@@ -37,7 +37,7 @@ function updateOverlay() {
     $(overlayElement).css({
         "backgroundColor": volume.backgroundColor,
         "color": volume.color,
-        "opacity": volume.opacity + "%",
+        "opacity": volume.opacity,
     });
 }
 
