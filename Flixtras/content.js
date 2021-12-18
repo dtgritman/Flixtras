@@ -35,18 +35,6 @@ $(overlayElement).css({
 function updateOverlay() {
     $(overlayElementContainer).css(volume.container);
     $(overlayElement).css(volume.element);
-    /*
-    $(overlayElementContainer).css({
-        "alignItems": volume.alignItems,
-        "justifyContent": volume.justifyContent,
-    });
-
-    $(overlayElement).css({
-        "backgroundColor": volume.backgroundColor,
-        "color": volume.color,
-        "opacity": volume.opacity,
-    });
-    */
 }
 
 // load stored settings
