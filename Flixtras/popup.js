@@ -21,10 +21,6 @@ submitSettings.addEventListener("click", async () => {
     // make sure values are within their range
     if (volIncrement.value < 1 || volIncrement.value > 50)
         volIncrement.value = 0;
-    if (volOverlayV.value < 0 || volOverlayV.value > 2)
-        volOverlayV.value = 1;
-    if (volOverlayH.value < 0 || volOverlayH.value > 2)
-        volOverlayH.value = 1;
     if (volOverlayO.value < 10 || volOverlayO.value > 100)
         volOverlayH.value = 50;
 
