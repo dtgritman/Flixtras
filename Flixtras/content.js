@@ -21,8 +21,6 @@ $(overlayElementContainer).css({
 
 $(overlayElement).css({
     "position": "relative",
-    "margin": "auto",
-    "marginTop": "-1em",
     "padding": "0.5em",
     "paddingLeft": "1em",
     "paddingRight": "1em",
@@ -33,11 +31,14 @@ function updateOverlay() {
         "justifyContent": "center",
     });
 
+
     $(overlayElement).css({
         "backgroundColor": volume.backgroundColor,
         "color": volume.color,
         "opacity": volume.opacity + "%",
-        "top": "50%",
+        "margin": "auto",
+        "marginTop": (-1 * volume.vertical) + "em",
+        "top": (50 * volume.vertical) + "%",
     });
 }
 
@@ -45,6 +46,10 @@ function updateOverlay() {
 chrome.storage.local.get(["volume"], (result) => {
     if (result.volume.increment)
         volume.increment = result.volume.increment / 100;
+    if (result.volume.vertical)
+        volume.vertical = result.volume.vertical;
+    if (result.volume.horizontal)
+        volume.horizontal = result.volume.horizontal;
     if (result.volume.backgroundColor)
         volume.backgroundColor = result.volume.backgroundColor;
     if (result.volume.color)
@@ -84,6 +89,6 @@ function displayOverlay(parent, text, time = 1000) {
     parent.append(overlayElementContainer);
     clearTimeout(overlayTimer);
     overlayTimer = setTimeout(function () {
-        overlayElementContainer.remove();
+        //overlayElementContainer.remove();
     }, time);
 }
