@@ -18,12 +18,6 @@ chrome.storage.local.get(["volume"], (result) => {
 });
 
 submitSettings.addEventListener("click", async () => {
-    // make sure values are within their range
-    if (volIncrement.value < 1 || volIncrement.value > 50)
-        volIncrement.value = 0;
-    if (volOverlayO.value < 10 || volOverlayO.value > 100)
-        volOverlayH.value = 50;
-
     chrome.storage.local.set({
         "volume": {
             "increment": volIncrement.value,
