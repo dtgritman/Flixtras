@@ -5,6 +5,7 @@ overlayElementContainer.append(overlayElement);
 var overlayTimer = 0;
 var volume = {
     "increment": 1,
+    "overlay": 1,
     "container": {
         "alignItems": "center",
         "justifyContent": "center",
@@ -41,6 +42,8 @@ function updateOverlay() {
 chrome.storage.local.get(["volume"], (result) => {
     if (result.volume.increment)
         volume.increment = result.volume.increment;
+    if (result.volume.overlay)
+        volume.overlay = result.volume.overlay;
     if (result.volume.container)
         volume.container = result.volume.container;
     if (result.volume.element)
@@ -52,9 +55,10 @@ chrome.storage.local.get(["volume"], (result) => {
 // update settings when changes are made
 chrome.storage.onChanged.addListener((changes) => {
     if (changes.volume) {
-        if (changes.volume.newValue.increment != changes.volume.oldValue.increment) {
+        if (changes.volume.newValue.increment != changes.volume.oldValue.increment)
             volume.increment = changes.volume.newValue.increment;
-        }
+        if (changes.volume.newValue.overlay != changes.volume.oldValue.overlay)
+            volume.overlay = changes.volume.newValue.overlay;
 
         let overlayUpdated = false;
         if (changes.volume.newValue.container != changes.volume.oldValue.container) {
@@ -65,9 +69,8 @@ chrome.storage.onChanged.addListener((changes) => {
             volume.element = changes.volume.newValue.element;
             overlayUpdated = true;
         }
-        if (overlayUpdated) {
+        if (overlayUpdated)
             updateOverlay();
-        }
     }
 });
 
@@ -89,7 +92,8 @@ $("div").on("wheel", "video", function (event) {
     this.volume = newVolume;
 
     // Set and display volume overlay
-    displayOverlay(this.parentElement, (newVolume * 100).toFixed());
+    if (volume.overlay > 0)
+        displayOverlay(this.parentElement, (newVolume * 100).toFixed());
 
 
     return false; // cancels event to prevent it registering again on 1 scroll
