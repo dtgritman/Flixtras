@@ -5,16 +5,15 @@ chrome.storage.local.get(["volume"], (result) => {
 
     if (result.volume.increment)
         volIncrement.value = result.volume.increment;
-    if (result.volume.alignItems)
-        volAlignItems.value = result.volume.alignItems;
-    if (result.volume.justifyContent)
-        volJustifyContent.value = result.volume.justifyContent;
-    if (result.volume.backgroundColor)
-        volBackgroundColor.value = result.volume.backgroundColor;
-    if (result.volume.color)
-        volColor.value = result.volume.color;
-    if (result.volume.opacity)
-        volOpacity.value = result.volume.opacity;
+    if (result.volume.container) {
+        volAlignItems.value = result.volume.container.alignItems;
+        volJustifyContent.value = result.volume.container.justifyContent;
+    }
+    if (result.volume.element) {
+        volBackgroundColor.value = result.volume.element.backgroundColor;
+        volColor.value = result.volume.element.color;
+        volOpacity.value = result.volume.element.opacity;
+    }
 });
 
 submitSettings.addEventListener("click", async () => {
