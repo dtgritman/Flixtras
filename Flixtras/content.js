@@ -49,6 +49,28 @@ chrome.storage.local.get(["volume"], (result) => {
     updateOverlay();
 });
 
+// update settings when changes are made
+chrome.storage.onChanged.addListener((changes) => {
+    if (changes.volume) {
+        if (changes.volume.newValue.increment != changes.volume.oldValue.increment) {
+            volume.increment = changes.volume.newValue.increment;
+        }
+
+        let overlayUpdated = false;
+        if (changes.volume.newValue.container != changes.volume.oldValue.container) {
+            volume.container = changes.volume.newValue.container;
+            overlayUpdated = true;
+        }
+        if (changes.volume.newValue.element != changes.volume.oldValue.element) {
+            volume.element = changes.volume.newValue.element;
+            overlayUpdated = true;
+        }
+        if (overlayUpdated) {
+            updateOverlay();
+        }
+    }
+});
+
 
 $("div").on("wheel", "video", function (event) {
     event.preventDefault(); // prevent page scrolling on videos
