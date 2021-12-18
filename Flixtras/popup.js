@@ -27,9 +27,9 @@ submitSettings.addEventListener("click", async () => {
     chrome.storage.local.set({
         "volume": {
             "increment": volIncrement.value,
-            "align-items": volOverlayV.value,
-            "justify-content": volOverlayH.value,
-            "background-color": volBackgroundColor.value,
+            "alignItems": volOverlayV.value,
+            "justifyContent": volOverlayH.value,
+            "backgroundColor": volBackgroundColor.value,
             "color": volColor.value,
             "opacity": volOverlayO.value,
         }

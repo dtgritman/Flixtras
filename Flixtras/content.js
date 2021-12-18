@@ -5,16 +5,16 @@ overlayElementContainer.append(overlayElement);
 var overlayTimer = 0;
 var volume = {
     "increment": 0.01,
-    "align-items": "center",
-    "justify-content": "center",
-    "background-color": "#000000",
+    "alignItems": "center",
+    "justifyContent": "center",
+    "backgroundColor": "#000000",
     "color": "#ffffff",
     "opacity": "50",
 };
 
 // standard css for the overlay elements
 $(overlayElementContainer).css({
-    "pointer-events": "none", // make mouse events go through to element behind
+    "pointerEvents": "none", // make mouse events go through to element behind
     "width": "100%",
     "height": "100%",
     "display": "flex",
@@ -24,18 +24,18 @@ $(overlayElement).css({
     "width": "fit-content",
     "height": "fit-content",
     "padding": "0.5em",
-    "padding-left": "1em",
-    "padding-right": "1em",
+    "paddingLeft": "1em",
+    "paddingRight": "1em",
 });
 
 function updateOverlay() {
     $(overlayElementContainer).css({
-        "align-items": volume.align-items,
-        "justify-content": volume.justify-content,
+        "alignItems": volume.alignItems,
+        "justifyContent": volume.justifyContent,
     });
 
     $(overlayElement).css({
-        "background-color": volume.background-color,
+        "backgroundColor": volume.backgroundColor,
         "color": volume.color,
         "opacity": volume.opacity + "%",
     });
@@ -45,10 +45,10 @@ function updateOverlay() {
 chrome.storage.local.get(["volume"], (result) => {
     if (result.volume.increment)
         volume.increment = result.volume.increment / 100;
-    if (result.volume.vertical)
-        volume.vertical = result.volume.vertical;
-    if (result.volume.horizontal)
-        volume.horizontal = result.volume.horizontal;
+    if (result.volume.alignItems)
+        volume.alignItems = result.volume.alignItems;
+    if (result.volume.justifyContent)
+        volume.justifyContent = result.volume.justifyContent;
     if (result.volume.backgroundColor)
         volume.backgroundColor = result.volume.backgroundColor;
     if (result.volume.color)
