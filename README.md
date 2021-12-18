@@ -21,12 +21,13 @@ Available on the chrome web store: [link](https://chrome.google.com/webstore/det
 - Overlay opacity can be changed
 - Setting changes no longer require page refresh
 - More menu layout fixes
+- More restructuring of storage
 
 ### 0.0.2
 
-- Added volume increment to menu
+- Added volume increment adjustment to menu
 - Fixed menu layout some
-- Restructed local storage
+- Restructured storage object for storing settings
 
 ## About
 
