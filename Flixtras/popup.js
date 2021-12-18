@@ -18,15 +18,15 @@ chrome.storage.local.get(["volume"], (result) => {
 });
 
 submitSettings.addEventListener("click", async () => {
-    if (volIncrement.value < 1)
-        volIncrement.value = 1;
-    else if (volIncrement.value > 100)
-        volIncrement.value = 100;
-
-    if (volOverlayV.value < 1 || volOverlayV.value > 3)
-        volOverlayV.value = 2;
-    if (volOverlayH.value < 1 || volOverlayH.value > 3)
-        volOverlayH.value = 2;
+    // make sure values are within their range
+    if (volIncrement.value < 1 || volIncrement.value > 50)
+        volIncrement.value = 0;
+    if (volOverlayV.value < 0 || volOverlayV.value > 2)
+        volOverlayV.value = 1;
+    if (volOverlayH.value < 0 || volOverlayH.value > 2)
+        volOverlayH.value = 1;
+    if (volOverlayO.value < 10 || volOverlayO.value > 100)
+        volOverlayH.value = 50;
 
     chrome.storage.local.set({
         "volume": {
@@ -35,7 +35,7 @@ submitSettings.addEventListener("click", async () => {
             "horizontal": volOverlayH.value,
             "backgroundColor": volBackgroundColor.value,
             "color": volColor.value,
-            "opacity": volOverlayO.value
+            "opacity": volOverlayO.value,
         }
     }, () => {
         alert("Settings updated! Refresh the page for the settings to take effect.");
