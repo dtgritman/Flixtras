@@ -5,9 +5,9 @@ overlayElementContainer.append(overlayElement);
 var overlayTimer = 0;
 var volume = {
     "increment": 0.01,
-    "vertical": "center",
-    "horizontal": "center",
-    "backgroundColor": "#000000",
+    "align-items": "center",
+    "justify-content": "center",
+    "background-color": "#000000",
     "color": "#ffffff",
     "opacity": "50",
 };
@@ -30,13 +30,12 @@ $(overlayElement).css({
 
 function updateOverlay() {
     $(overlayElementContainer).css({
-        "align-items": volume.vertical,
-        "justify-content": volume.horizontal,
+        "align-items": volume.align-items,
+        "justify-content": volume.justify-content,
     });
 
-
     $(overlayElement).css({
-        "background-color": volume.backgroundColor,
+        "background-color": volume.background-color,
         "color": volume.color,
         "opacity": volume.opacity + "%",
     });
