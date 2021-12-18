@@ -36,7 +36,7 @@ function updateOverlay() {
     $(overlayElement).css({
         "backgroundColor": volume.backgroundColor,
         "color": volume.color,
-        "opacity": volume.opacity,
+        "opacity": volume.opacity + "%",
         "top": "50%",
     });
 }
