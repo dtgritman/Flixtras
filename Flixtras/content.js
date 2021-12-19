@@ -2,8 +2,7 @@ const overlayElementContainer = document.createElement("div");
 const overlayElement = document.createElement("p");
 overlayElementContainer.append(overlayElement);
 
-var overlayTimer = 0;
-var volume = {
+const volume = {
     "increment": 1,
     "overlay": 1,
     "container": {
@@ -15,6 +14,7 @@ var volume = {
         "color": "#ffffff",
         "opacity": "50%",
     },
+    "timer": 0,
 };
 
 // standard css for the overlay elements
@@ -102,8 +102,8 @@ $("div").on("wheel", "video", function (event) {
 function displayOverlay(parent, text, time = 1000) {
     overlayElement.innerText = text;
     parent.append(overlayElementContainer);
-    clearTimeout(overlayTimer);
-    overlayTimer = setTimeout(function () {
+    clearTimeout(volume.timer);
+    volume.timer = setTimeout(function () {
         overlayElementContainer.remove();
     }, time);
 }
