@@ -101,7 +101,7 @@ $("div").on("wheel", "video", function (event) {
     this.volume = newVolume;
 
     // Set and display volume overlay
-    if (volume.overlay > 0)
+    if (volume.overlay != 0)
         displayOverlay(this.parentElement, (newVolume * 100).toFixed());
 
 
