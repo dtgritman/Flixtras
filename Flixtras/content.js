@@ -75,6 +75,15 @@ chrome.storage.onChanged.addListener((changes) => {
 });
 
 
+function displayOverlay(parent, text, time = 1000) {
+    overlayElement.innerText = text;
+    parent.append(overlayElementContainer);
+    clearTimeout(volume.timer);
+    volume.timer = setTimeout(function () {
+        overlayElementContainer.remove();
+    }, time);
+}
+
 $("div").on("wheel", "video", function (event) {
     event.preventDefault(); // prevent page scrolling on videos
 
@@ -98,12 +107,3 @@ $("div").on("wheel", "video", function (event) {
 
     return false; // cancels event to prevent it registering again on 1 scroll
 });
-
-function displayOverlay(parent, text, time = 1000) {
-    overlayElement.innerText = text;
-    parent.append(overlayElementContainer);
-    clearTimeout(volume.timer);
-    volume.timer = setTimeout(function () {
-        overlayElementContainer.remove();
-    }, time);
-}
