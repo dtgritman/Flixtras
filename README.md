@@ -13,6 +13,10 @@ Available on the chrome web store: [link](https://chrome.google.com/webstore/det
 
 ## Patch Notes
 
+### 0.0.4
+
+- Overlay font changed to bold
+
 ### 0.0.3
 
 - Volume increments are now a dropdown menu
