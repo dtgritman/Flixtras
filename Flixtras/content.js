@@ -31,6 +31,7 @@ $(overlayElement).css({
     "padding": "0.5em",
     "paddingLeft": "1em",
     "paddingRight": "1em",
+    "fontWeight": "bold",
 });
 
 function updateOverlay() {
